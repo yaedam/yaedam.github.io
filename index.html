@@ -5,55 +5,9 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Class Manager - Home</title>
+  <title>2026. 행복한 우리 반</title>
   <link rel="stylesheet" href="/css/common.css">
-  <style>
-    .landing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
 
-    .landing-card {
-      background: #fff;
-      backdrop-filter: none;
-      border-radius: 0;
-      border: 3px solid #000;
-      padding: 40px;
-      text-align: center;
-      text-decoration: none;
-      color: #000;
-      transition: all 0.2s ease;
-      box-shadow: 8px 8px 0 #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .landing-card:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 4px 4px 0 #000;
-      background: #F0F8FF;
-    }
-
-    .card-icon {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .card-desc {
-      color: #555;
-      font-size: 0.95rem;
-    }
-  </style>
 </head>
 
 <body>
@@ -61,11 +15,11 @@
 
   <div class="page-container">
     <div style="text-align: center; margin-bottom: 50px; padding: 40px 0;">
-      <h1 style="font-size: 3rem; color: #000; text-shadow: 2px 2px 0 #fff; margin-bottom: 10px; font-weight: 900;">
+      <h1
+        style="font-size: 3rem; margin-bottom: 10px; font-weight: 900; background: linear-gradient(to right, #FF9A9E, #FECFEF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
         2026. 예담선생님
       </h1>
-      <p
-        style="font-size: 1.2rem; color: #000; font-weight: bold; background: #fff; display: inline-block; padding: 5px 15px; border: 2px solid #000; box-shadow: 3px 3px 0 #000;">
+      <p style="font-size: 1.2rem; color: #666; font-weight: 600;">
         즐거운 학교 생활 기록
       </p>
     </div>
@@ -80,13 +34,31 @@
       <a href="/pages/notice.html" class="landing-card">
         <div class="card-icon">📢</div>
         <h2 class="card-title">오늘의 알림장</h2>
-        <p class="card-desc">학급 공지사항과 준비물을 확인하세요.</p>
+        <p class="card-desc">학급 공지사항과 가정통신문을 확인하세요.</p>
       </a>
 
       <a href="/pages/timer.html" class="landing-card">
         <div class="card-icon">⏱️</div>
         <h2 class="card-title">타이머</h2>
-        <p class="card-desc">수업 활동 집중을 위한 타이머 도구입니다.</p>
+        <p class="card-desc">수업 활동 집중을 위한 정밀 타이머입니다.</p>
+      </a>
+
+      <a href="/pages/lunch.html" class="landing-card">
+        <div class="card-icon">🍱</div>
+        <h2 class="card-title">오늘의 급식</h2>
+        <p class="card-desc">이번 주 맛있는 급식 메뉴를 확인하세요.</p>
+      </a>
+
+      <a href="/pages/schedule.html" class="landing-card">
+        <div class="card-icon">📅</div>
+        <h2 class="card-title">시간표</h2>
+        <p class="card-desc">우리 반 주간 시간표를 관리하세요.</p>
+      </a>
+
+      <a href="/pages/worklog.html" class="landing-card">
+        <div class="card-icon">📝</div>
+        <h2 class="card-title">업무일지</h2>
+        <p class="card-desc">놓치지 말아야 할 교사 업무를 기록하세요.</p>
       </a>
     </div>
   </div>

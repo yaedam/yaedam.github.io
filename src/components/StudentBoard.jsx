@@ -59,7 +59,7 @@ const StudentBoard = () => {
         setNewLog('');
     };
 
-    // Cubism Styles
+    // Glassmorphism Styles
     const containerStyle = {
         height: '100%',
         display: 'flex',
@@ -67,17 +67,18 @@ const StudentBoard = () => {
     };
 
     const cardStyle = {
-        background: '#fff',
-        border: '3px solid #000',
+        background: 'rgba(224, 247, 250, 0.6)', // Sky Blue Tint
+        border: '1px solid rgba(255, 255, 255, 0.6)',
+        borderRadius: '20px',
         padding: '15px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        boxShadow: '6px 6px 0 #000',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
         cursor: 'pointer',
-        transition: 'all 0.1s',
+        transition: 'all 0.3s ease',
         position: 'relative'
     };
 
@@ -93,36 +94,39 @@ const StudentBoard = () => {
                     <div key={student.id}
                         onClick={() => handleStudentClick(student)}
                         style={cardStyle}
-                        onMouseDown={e => {
-                            e.currentTarget.style.transform = 'translate(2px, 2px)';
-                            e.currentTarget.style.boxShadow = '4px 4px 0 #000';
+                        onMouseEnter={e => {
+                            e.currentTarget.style.transform = 'translateY(-5px)';
+                            e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)';
+                            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.6)';
                         }}
-                        onMouseUp={e => {
-                            e.currentTarget.style.transform = 'translate(0, 0)';
-                            e.currentTarget.style.boxShadow = '6px 6px 0 #000';
+                        onMouseLeave={e => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.05)';
+                            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.4)';
                         }}
                     >
                         <div style={{
                             width: '50px',
                             height: '50px',
                             borderRadius: '50%',
-                            border: '2px solid #000',
                             marginBottom: '10px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             fontWeight: 'bold',
                             fontSize: '1.2rem',
-                            background: student.points > 0 ? '#90EE90' : (student.points < 0 ? '#FFB6C1' : '#eee')
+                            color: '#fff',
+                            background: student.points > 0 ? 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)' : (student.points < 0 ? 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' : '#ddd'),
+                            boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
                         }}>
                             {student.id}
                         </div>
-                        <span style={{ fontWeight: 'bold' }}>{student.name}</span>
+                        <span style={{ fontWeight: '600', color: '#444' }}>{student.name}</span>
                         {student.points !== 0 && (
                             <span style={{
                                 marginTop: '5px',
-                                fontWeight: '900',
-                                color: student.points > 0 ? 'green' : 'red'
+                                fontWeight: '800',
+                                color: student.points > 0 ? '#FF69B4' : '#888'
                             }}>
                                 {student.points > 0 ? '+' : ''}{student.points}
                             </span>
@@ -136,7 +140,8 @@ const StudentBoard = () => {
                 <div style={{
                     position: 'fixed',
                     top: 0, left: 0, width: '100%', height: '100%',
-                    background: 'rgba(0,0,0,0.5)',
+                    background: 'rgba(0,0,0,0.3)',
+                    backdropFilter: 'blur(5px)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     zIndex: 2000
                 }}
@@ -144,49 +149,62 @@ const StudentBoard = () => {
                         if (e.target === e.currentTarget) setIsModalOpen(false);
                     }}>
                     <div style={{
-                        background: '#fff',
-                        border: '4px solid #000',
-                        boxShadow: '10px 10px 0 #000',
+                        background: 'rgba(255, 255, 255, 0.9)',
+                        borderRadius: '24px',
+                        boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
                         padding: '30px',
                         width: '90%',
                         maxWidth: '500px',
                         maxHeight: '90vh',
-                        overflowY: 'auto'
+                        overflowY: 'auto',
+                        border: '1px solid rgba(255,255,255,0.5)'
                     }}>
-                        <h2 style={{ borderBottom: '3px solid #000', paddingBottom: '10px', marginTop: 0 }}>
-                            {selectedStudent.name} (점수: {selectedStudent.points})
+                        <h2 style={{ borderBottom: '1px solid #eee', paddingBottom: '15px', marginTop: 0, color: '#333' }}>
+                            {selectedStudent.name} <span style={{ fontSize: '0.8em', color: '#666' }}>(점수: {selectedStudent.points})</span>
                         </h2>
 
-                        <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                        <div style={{ display: 'flex', gap: '15px', marginBottom: '25px' }}>
                             <button onClick={() => handlePointUpdate(1)} style={{
-                                flex: 1, padding: '10px', border: '2px solid #000',
-                                background: '#90EE90', fontWeight: 'bold', cursor: 'pointer',
-                                boxShadow: '3px 3px 0 #000'
-                            }}>
+                                flex: 1, padding: '12px', border: 'none', borderRadius: '12px',
+                                background: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+                                color: '#555', fontWeight: 'bold', cursor: 'pointer',
+                                boxShadow: '0 4px 15px rgba(0,0,0,0.1)', transition: 'transform 0.2s'
+                            }}
+                                onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
+                                onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
+                            >
                                 👍 칭찬해요 (+1)
                             </button>
                             <button onClick={() => handlePointUpdate(-1)} style={{
-                                flex: 1, padding: '10px', border: '2px solid #000',
-                                background: '#FFB6C1', fontWeight: 'bold', cursor: 'pointer',
-                                boxShadow: '3px 3px 0 #000'
-                            }}>
+                                flex: 1, padding: '12px', border: 'none', borderRadius: '12px',
+                                background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+                                color: '#555', fontWeight: 'bold', cursor: 'pointer',
+                                boxShadow: '0 4px 15px rgba(0,0,0,0.1)', transition: 'transform 0.2s'
+                            }}
+                                onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
+                                onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
+                            >
                                 👎 반성해요 (-1)
                             </button>
                         </div>
 
-                        <div style={{ borderTop: '3px solid #000', paddingTop: '20px' }}>
-                            <h3 style={{ marginTop: 0 }}>📝 생활 기록</h3>
+                        <div style={{ borderTop: '1px solid #eee', paddingTop: '20px' }}>
+                            <h3 style={{ marginTop: 0, color: '#444' }}>📝 생활 기록</h3>
                             <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
                                 <input
                                     type="text"
                                     placeholder="기록할 내용 입력..."
                                     value={newLog}
                                     onChange={e => setNewLog(e.target.value)}
-                                    style={{ flex: 1, padding: '8px', border: '2px solid #000' }}
+                                    style={{
+                                        flex: 1, padding: '12px', borderRadius: '12px',
+                                        border: '1px solid #ddd', background: '#f9f9f9', outline: 'none'
+                                    }}
                                 />
                                 <button onClick={handleAddLog} style={{
-                                    border: '2px solid #000', background: '#FFD700', fontWeight: 'bold',
-                                    padding: '0 15px', cursor: 'pointer', boxShadow: '2px 2px 0 #000'
+                                    border: 'none', borderRadius: '12px', background: '#FFB6C1',
+                                    color: '#fff', fontWeight: 'bold',
+                                    padding: '0 20px', cursor: 'pointer', boxShadow: '0 4px 10px rgba(255, 182, 193, 0.4)'
                                 }}>
                                     등록
                                 </button>
@@ -194,21 +212,24 @@ const StudentBoard = () => {
                             <ul style={{ listStyle: 'none', padding: 0, maxHeight: '200px', overflowY: 'auto' }}>
                                 {(logs[selectedStudent.id] || []).map(log => (
                                     <li key={log.id} style={{
-                                        border: '2px solid #000', padding: '10px', marginBottom: '10px',
-                                        background: '#F0F8FF', boxShadow: '2px 2px 0 #000'
+                                        borderBottom: '1px solid #eee', padding: '12px', marginBottom: '5px',
+                                        background: 'rgba(255,255,255,0.5)', borderRadius: '8px'
                                     }}>
-                                        <div style={{ fontSize: '0.8rem', color: '#555', marginBottom: '5px' }}>{log.date}</div>
-                                        <div>{log.text}</div>
+                                        <div style={{ fontSize: '0.8rem', color: '#888', marginBottom: '3px' }}>{log.date}</div>
+                                        <div style={{ color: '#444' }}>{log.text}</div>
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
                         <button onClick={() => setIsModalOpen(false)} style={{
-                            width: '100%', padding: '10px', marginTop: '10px',
-                            background: '#000', color: '#fff', border: 'none', fontWeight: 'bold',
-                            cursor: 'pointer'
-                        }}>
+                            width: '100%', padding: '12px', marginTop: '15px',
+                            background: '#eee', color: '#555', border: 'none', borderRadius: '12px', fontWeight: 'bold',
+                            cursor: 'pointer', transition: 'background 0.2s'
+                        }}
+                            onMouseEnter={e => e.currentTarget.style.background = '#ddd'}
+                            onMouseLeave={e => e.currentTarget.style.background = '#eee'}
+                        >
                             닫기
                         </button>
                     </div>

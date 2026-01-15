@@ -15,12 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const menuHTML = `
-        <a href="/" class="menu-logo">✨ Class Manager</a>
+        <a href="/" class="menu-logo">✨ 2026. 행복한 우리 반</a>
         <ul class="menu-list">
             <li class="menu-item"><a href="/" class="${isActive('/')}">홈 (Home)</a></li>
             <li class="menu-item"><a href="/pages/observation.html" class="${isActive('observation.html')}">학생 관찰일지</a></li>
             <li class="menu-item"><a href="/pages/notice.html" class="${isActive('notice.html')}">오늘의 알림장</a></li>
             <li class="menu-item"><a href="/pages/timer.html" class="${isActive('timer.html')}">타이머</a></li>
+            <li class="menu-item"><a href="/pages/lunch.html" class="${isActive('lunch.html')}">오늘의 급식</a></li>
+            <li class="menu-item"><a href="/pages/schedule.html" class="${isActive('schedule.html')}">시간표</a></li>
+            <li class="menu-item"><a href="/pages/worklog.html" class="${isActive('worklog.html')}">업무일지</a></li>
         </ul>
     `;
 
