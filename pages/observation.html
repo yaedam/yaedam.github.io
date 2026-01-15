@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 관찰일지 - Class Manager</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+<body>
+    <nav id="global-menu"></nav>
+
+    <div class="page-container">
+        <div class="glass-panel">
+            <h1>학생 관찰일지</h1>
+            <p>학생들의 행동 및 특이사항을 기록하는 페이지입니다.</p>
+            <div id="observation-root"></div> <!-- React Entry Point -->
+        </div>
+    </div>
+
+    <!-- Menu Injection -->
+    <script src="/js/menu.js"></script>
+    <!-- React Entry Script (Will be created later) -->
+    <script type="module" src="/src/pages/EntryObservation.jsx"></script>
+</body>
+</html>

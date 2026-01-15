@@ -1,13 +1,98 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>app</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Manager - Home</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <style>
+    .landing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .landing-card {
+      background: #fff;
+      backdrop-filter: none;
+      border-radius: 0;
+      border: 3px solid #000;
+      padding: 40px;
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+      transition: all 0.2s ease;
+      box-shadow: 8px 8px 0 #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .landing-card:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0 #000;
+      background: #F0F8FF;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .card-desc {
+      color: #555;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="global-menu"></nav>
+
+  <div class="page-container">
+    <div style="text-align: center; margin-bottom: 50px; padding: 40px 0;">
+      <h1 style="font-size: 3rem; color: #000; text-shadow: 2px 2px 0 #fff; margin-bottom: 10px; font-weight: 900;">
+        2026. 예담선생님
+      </h1>
+      <p
+        style="font-size: 1.2rem; color: #000; font-weight: bold; background: #fff; display: inline-block; padding: 5px 15px; border: 2px solid #000; box-shadow: 3px 3px 0 #000;">
+        즐거운 학교 생활 기록
+      </p>
+    </div>
+
+    <div class="landing-grid">
+      <a href="/pages/observation.html" class="landing-card">
+        <div class="card-icon">👩‍🎓</div>
+        <h2 class="card-title">학생 관찰일지</h2>
+        <p class="card-desc">학생들의 특이사항과 성장 과정을 기록하세요.</p>
+      </a>
+
+      <a href="/pages/notice.html" class="landing-card">
+        <div class="card-icon">📢</div>
+        <h2 class="card-title">오늘의 알림장</h2>
+        <p class="card-desc">학급 공지사항과 준비물을 확인하세요.</p>
+      </a>
+
+      <a href="/pages/timer.html" class="landing-card">
+        <div class="card-icon">⏱️</div>
+        <h2 class="card-title">타이머</h2>
+        <p class="card-desc">수업 활동 집중을 위한 타이머 도구입니다.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Menu Injection -->
+  <script src="/js/menu.js"></script>
+</body>
+
 </html>
